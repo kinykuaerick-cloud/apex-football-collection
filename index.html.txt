@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Football Collection | Equipping Champions. Scouting Future Stars.</title>
+    <style>
+        :root {
+            --primary: #0b132b;
+            --secondary: #1c2541;
+            --accent: #3a86ff;
+            --gold: #ffb703;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: white;
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        .hero {
+            background: linear-gradient(rgba(11, 19, 43, 0.85), rgba(28, 37, 65, 0.85)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .hero h1 span {
+            color: var(--gold);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            color: #e2e8f0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 0.5rem;
+        }
+        .btn:hover {
+            background-color: #ffa200;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        section {
+            padding: 5rem 10%;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--accent);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        .card-content p {
+            color: #495057;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .badge {
+            background-color: #e9ecef;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+        .about-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--gold);
+        }
+        .about-box p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .founders {
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+        .calculator-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: 4px solid var(--gold);
+        }
+        footer p {
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            section { padding: 3rem 5%; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">APEX <span>FOOTBALL COLLECTION</span></div>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#catalog">Catalog</a>
+            <a href="#academy">Academy & Scouting</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Equipping Champions. <span>Scouting Future Stars.</span></h1>
+        <p>Premium match-grade footballs, professional goalkeeper gear, custom jerseys, trophies, and elite sports development pathways for schools across Kenya.</p>
+        <a href="#catalog" class="btn">View School Catalog</a>
+        <a href="https://wa.me/254790111426?text=Hello%20Apex%20Football%20Collection,%20I%20would%20like%20to%20inquire%20about%20school%20equipment." target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+    </section>
+
+    <!-- About Us -->
+    <section id="about">
+        <h2 class="section-title">More Than a Supplier — Your Sports Partner</h2>
+        <p class="section-subtitle">Founded by John Kinyua and Erick Kinyua, we combine top-tier international equipment sourcing with grassroots sports development.</p>
+        <div class="about-box">
+            <p>At <strong>Apex Football Collection</strong>, we don’t just supply high-durability, long-lasting sports equipment that withstands the toughest school pitches—we build talent pipelines. By partnering directly with primary and secondary schools in Kenya, we provide top-tier gear while actively scouting, nurturing, and creating pathways for the next generation of football stars through elite holiday clinics and competitive showcases.</p>
+            <p class="founders">Directors: John Kinyua & Erick Kinyua</p>
+        </div>
+    </section>
+
+    <!-- Product Catalog -->
+    <section id="catalog" style="background-color: #e9ecef;">
+        <h2 class="section-title">Professional Gear Built for Schools</h2>
+        <p class="section-subtitle">Cut out the middlemen. Get heavy-duty match equipment and custom kits designed to save your school budget.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <span class="badge">Match Equipment</span>
+                    <h3>Match & Training Footballs</h3>
+                    <p>Abrasion-resistant, high air-retention balls engineered for both grass fields and abrasive school surfaces (Sizes 3, 4 & 5).</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <span class="badge">Player Gear</span>
+                    <h3>Pro Goalkeeper Gloves</h3>
+                    <p>High-grip latex palms and finger protection styles (including Adidas Predator and Puma designs) for junior and senior players.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <span class="badge">Team Uniforms</span>
+                    <h3>Custom Football Jerseys & Kits</h3>
+                    <p>Fully customizable school team kits and sublimation jerseys featuring school crests, numbers, and sponsor branding.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <span class="badge">Awards & Trophies</span>
+                    <h3>Trophies & Tournament Medals</h3>
+                    <p>High-quality engraved trophies, medals, and plaques for inter-house sports days, end-of-term awards, and tournaments.</p>
+                </div>
+            </div>
+            <div class="card" style="grid-column: 1 / -1; border-top-color: var(--gold);">
+                <div class="card-content">
+                    <span class="badge" style="background-color: var(--gold); color: var(--primary);">Special Bundle</span>
+                    <h3>The Complete School PE Bundle</h3>
+                    <p>Includes match balls, pro goalkeeper gloves, carry nets, dual-action pumps, and spare needles. <strong>Comes with guaranteed academy nomination slots!</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academy & Scouting Vision -->
+    <section id="academy">
+        <h2 class="section-title">The Talent Pathway & Tournaments</h2>
+        <p class="section-subtitle">Bridging grassroots school sports with professional exposure.</p>
+        <div class="about-box" style="border-left-color: var(--accent);">
+            <p>Inspired by world-class youth academies, our mission is to provide structured pathways for young talent. We organize inter-school mini-tournaments and holiday training camps designed to give standout students the platform they deserve.</p>
+            <p style="font-weight: bold; color: var(--accent); margin-top: 1rem;">"Every equipment order unlocks exclusive player nomination slots for our upcoming regional scouting clinics and tournaments."</p>
+        </div>
+    </section>
+
+    <!-- Contact & Direct Ordering -->
+    <section id="contact" style="background-color: var(--secondary); color: white;">
+        <h2 class="section-title" style="color: white;">Partner With Us Today</h2>
+        <p class="section-subtitle" style="color: #cbd5e1;">Are you a Head of PE, sports coach, or school administrator looking to upgrade your sports department? Let's talk.</p>
+        
+        <div style="text-align: center;">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">📞 Phone / WhatsApp: <strong>+254 790 111 426</strong></p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">✉️ Email: <strong>apexfootballcollection@gmail.com</strong></p>
+            <a href="https://wa.me/254790111426?text=Hello%20Apex%20Football%20Collection,%20I%20would%20like%20to%20order%20school%20sports%20equipment." target="_blank" class="btn">Order via WhatsApp Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Apex Football Collection. All Rights Reserved.</p>
+        <p>Founders: John Kinyua & Erick Kinyua | Nairobi, Kenya</p>
+    </footer>
+
+</body>
+</html>
